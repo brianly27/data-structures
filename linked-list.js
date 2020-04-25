@@ -152,6 +152,10 @@ class LinkedList {
     }
 
     // remove all nodes
+
+    removeAllNodes() {
+        this.head = null
+    }
 }
 
 let n1 = new Node(3)
@@ -163,7 +167,7 @@ list1.insertFirst("a")
 list1.insertLast("c")
 list1.insertLast("d")
 list1.insertAtIndex("j", 0)
-list1.removeNodeAtIndex(0)
+list1.removeAllNodes()
 list1.printData()
 
 // let a = list1.getDataAtIndex(2)
