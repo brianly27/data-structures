@@ -92,7 +92,7 @@ class LinkedList {
             current = this.head
             let node = new Node(data)
             let i = 0
-            //
+            //stop at the index before the index where you want insert your data
             while (i < index -1) {
                 current = current.next
                 i ++
@@ -108,8 +108,24 @@ class LinkedList {
 
     }
 
-    // get a node at a given index
+    // get a data at a given index
+    getDataAtIndex(index) {
+        let current
+        let i = 0
 
+        if (index < 0 || index > this.size - 1 || this.head === null) {
+            return null
+        }
+        
+        current = this.head
+        while (i < index) {
+            current = current.next
+            i ++
+        }
+
+        return current.data
+
+    }
     // remove node at a given index
 
     // remove all nodes
@@ -125,7 +141,10 @@ list1.insertFirst("a")
 list1.insertLast("c")
 list1.insertLast("d")
 list1.insertAtIndex("j", 0)
-list1.printData()
+
+// list1.printData()
+let a = list1.getDataAtIndex(2)
+console.log(a)
 
 // list2.insertLast(23)
 // list2.printData()
