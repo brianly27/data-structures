@@ -127,11 +127,33 @@ class LinkedList {
 
     }
     // remove node at a given index
+    removeNodeAtIndex(index) {
+        let current
+        let i = 0
+
+        if (index < 0 || index > this.size - 1 || this.head === null) {
+            return null
+        }
+
+        if (index === 0) {
+            this.head = this.head.next
+            return
+        }
+
+        current = this.head
+        while (i < index - 1) {
+            current = current.next
+            i ++
+        }
+
+        let removeNode = current.next
+        current.next = removeNode.next
+        return removeNode
+    }
 
     // remove all nodes
 }
 
-// console.log("\ncurrent:", current, "\n")
 let n1 = new Node(3)
 let n2 = new Node(4)
 let list1 = new LinkedList()
@@ -141,10 +163,11 @@ list1.insertFirst("a")
 list1.insertLast("c")
 list1.insertLast("d")
 list1.insertAtIndex("j", 0)
+list1.removeNodeAtIndex(0)
+list1.printData()
 
-// list1.printData()
-let a = list1.getDataAtIndex(2)
-console.log(a)
+// let a = list1.getDataAtIndex(2)
+// console.log(a)
 
 // list2.insertLast(23)
 // list2.printData()
